@@ -14,30 +14,6 @@ def add_book():
     print("Book added successfully!")
 
 
-def view_books():
-    if not library:
-        print("No books found.")
-        return
-
-    print("\n--- BOOK LIST ---")
-    for idx, book in enumerate(library, start=1):
-        status = "Available" if book['is_available'] else "Not available"
-        print(f"{idx}. {book['title']} - {book['author']} ({status})")
-
-
-def search_book():
-    query = input("Enter keyword to search: ").lower()
-
-    results = [book for book in library if query in book['title'].lower()]
-
-    if results:
-        print("\n--- SEARCH RESULTS ---")
-        for book in results:
-            status = "Available" if book['is_available'] else "Not available"
-            print(f"{book['title']} - {book['author']} ({status})")
-    else:
-        print("No matching books found.")
-
 
 def main():
     while True:
